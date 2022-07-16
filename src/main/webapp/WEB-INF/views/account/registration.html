@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/account.css}">
+    <title>Registration</title>
+</head>
+<body>
+<div th:replace="layout/header.html :: header"></div>
+<form class="register" th:action="@{/account/registration}" th:method="post" th:object="${user}">
+    <div class="form-title"><h1>Sign up</h1></div>
+    <div class="form-groups">
+        <div class="form-group">
+            <label for="login">Login:</label>
+            <input type="text" id="login" th:field="*{login}" placeholder="Enter login"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" placeholder="Enter password"/>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Full name:</label>
+            <input type="text" id="fullName" th:field="*{fullName}" placeholder="Enter full name"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}" placeholder="Enter email"/>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" th:field="*{city}" placeholder="Enter city"/>
+        </div>
+    </div>
+    <div class="form-errors">
+        <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login error</p>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</p>
+        <p th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Full name error</p>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</p>
+        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City error</p>
+    </div>
+    <div class="form-button">
+        <input type="submit" value="Register"/>
+    </div>
+    <p>Are you registered? <a th:href="@{/account/login}">Enter</a></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<header th:fragment="header">
+    <div class="menus">
+        <div class="menu"><a th:href="@{/products}">Products</a></div>
+    </div>
+    <div class="identity" th:if="${userS==null}">
+        <a th:href="@{/account/login}">Sign in</a>
+    </div>
+    <div class="identity" th:unless="${userS==null}">
+        <div class="item"><a th:href="@{/account/{id}(id=${userS.getId()})}" th:text="@{{login}(login=${userS.getLogin()})}"></a></div>
+        <div class="item"><a th:href="@{/account/logout}">Logout</a></div>
+    </div>
+</header>
+</body>
+</html>

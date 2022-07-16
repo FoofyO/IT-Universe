@@ -1,0 +1,111 @@
+.market {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 7px;
+
+    padding: 3vh;
+    user-select: none;
+    margin: 3% 15% 3% 15%;
+    font-family: sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.market .search {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+
+    margin: 0 0 1vw 1vw;
+}
+
+.market .search select {
+    width: 20vw;
+    font-size: 3vh;
+}
+.market .search select:focus { outline: none; }
+
+.market .search .newProduct {
+    width: 9vw;
+    color: white;
+
+    border: none;
+    line-height: 5.6vh;
+    font-size: 3vh;
+    transition: 0.3s;
+    margin-left: 1vw;
+    border-radius: 7px;
+
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #2e3841;
+}
+
+.market .search .newProduct:hover {
+    opacity: 0.8;
+}
+
+.market .search .newProduct:active {
+    opacity: 0.6;
+}
+
+.market hr {
+    color: silver;
+    background-color: silver;
+    width: 66vw;
+}
+
+.market .nonInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5vh 0;
+}
+
+.market noninfo h1 {
+    color: #2e3841;
+}
+
+.market .products {
+    display: grid;
+    grid-row-gap: 8vh;
+    grid-column-gap: 3vh;
+    margin: 5vh 3vh 5vh 4vh;
+    grid-template-columns: 6fr 6fr 6fr;
+}
+
+.market .products .product {
+    display: flex;
+    flex-direction: column;
+
+    width: 18vw;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.market .products .product:hover { box-shadow: 0 2px 5px 0 rgb(62, 62, 62); }
+
+.market .products .product .image img{
+    height: 30vh;
+    width: 18vw;
+    object-fit: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.market .products .product .information {
+    display: flex;
+    flex-direction: column;
+}
+.market .products .product .information p { padding: 0; margin: 1vh; }
+.market .products .product .information .main { color: black; font-size: 3vh;}
+.market .products .product .information .datetime { color: gray; font-size: 2.6vh; }
+.market .products .product .information .price { color: black; font-size: 3vh; font-weight: bold;}
+
+.market .products {}

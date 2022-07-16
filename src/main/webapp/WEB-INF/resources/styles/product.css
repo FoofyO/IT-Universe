@@ -1,0 +1,120 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 7px;
+
+    width: 50vw;
+    padding: 3vh;
+    user-select: none;
+    margin: 10vh 0 0 25vw;
+    font-family: sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+form .form-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+}
+
+form .form-groups {
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+form .form-groups .form-group {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    font-size: 3vh;
+    margin: 2vh 0 2vh 2vw;
+}
+
+form .form-groups .form-group input[type="text"], .form-groups .form-group select, .form-groups .form-group textarea, .form-groups .form-group input[type="number"] {
+    margin-left: 1vw;
+    width: 20vw;
+    font-size: 3vh;
+}
+
+form .form-groups .form-group textarea {
+    min-height: 20vh;
+    max-height: 50vh;
+    min-width: 20vw;
+    max-width: 30vw;
+    font-family: sans-serif;
+}
+
+form .form-groups .form-group input[type="text"]:focus, .form-groups .form-group select:focus, .form-groups .form-group textarea:focus, .form-groups .form-group input[type="number"]:focus {
+    outline: none;
+}
+
+form .form-button {
+    display: flex;
+    flex-direction: row;
+}
+
+form .form-button input[type="submit"] {
+    width: 6vw;
+    height: 6vh;
+
+    color: white;
+    margin: 1vh 0;
+    font-size: 3vh;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 7px;
+    border: 1px solid silver;
+    background-color: #2e3841;
+}
+
+form .form-button a {
+    width: 6vw;
+    color: white;
+
+    border: none;
+    line-height: 5.6vh;
+    margin-right: 1vw;
+    font-size: 3vh;
+    transition: 0.3s;
+    margin-bottom: 1vh;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #2ea4a0;
+}
+
+
+form .form-button input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+form .form-button input[type="submit"]:active {
+    opacity: 0.6;
+}
+
+form .form-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form .form-errors p {
+    color: red;
+    margin-bottom: 0vh;
+    font-size: 2.5vh;
+}
+
+form a {
+    margin-top: 1vh;
+    color: dodgerblue;
+    text-decoration: none;
+}

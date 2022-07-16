@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/productDetail.css}">
+    <title>Product detail</title>
+</head>
+<body>
+<div th:replace="layout/header.html :: header"></div>
+<div class="product" th:if="${product!=null}">
+    <div class="title"><h1>Product</h1></div>
+    <div class="div-groups">
+        <div class="div-group">
+            <h3>Name:</h3>
+            <p th:text="${product.getName()}"></p>
+        </div>
+        <div class="div-group">
+            <h3>Category:</h3>
+            <p th:text="${product.getCategory().getName()}"></p>
+        </div>
+        <div class="div-group">
+            <h3>Description:</h3>
+            <p th:text="${product.getDescription()}"></p>
+        </div>
+        <div class="div-group">
+            <h3>Price:</h3>
+            <p th:text="${#strings.replace(#numbers.formatDecimal(product.getPrice(), 0, 'WHITESPACE', 2, 'POINT'), '.00', '')} + '$'"></p>
+        </div>
+        <div class="div-group">
+            <h3>Creation date:</h3>
+            <p th:text="${#dates.format(product.getCreationDate(), 'dd.M.yyyy hh:mm')}"></p>
+        </div>
+        <div class="div-group">
+            <h3>Seller:</h3>
+            <a th:href="@{/account/{id}(id=${product.getSeller().getId()})}" th:text="${product.getSeller().getFullName()}"></a>
+        </div>
+    </div>
+    <div class="div-buttons" th:if="${user!=null}">
+        <form th:action="@{/products/{id}(id=${product.getId()})}" th:method="delete">
+            <input type="submit" value="Delete">
+        </form>
+        <a th:href="@{/products/{id}/edit(id=${product.getId()})}" class="button edit" th:text="Edit"></a>
+    </div>
+</div>
+<div class="productNotFound" th:unless="${product!=null}">
+    <h1>Product not found</h1>
+</div>
+</body>
+</html>

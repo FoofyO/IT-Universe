@@ -1,0 +1,102 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 7px;
+
+    padding: 3vh;
+    user-select: none;
+    margin: 3% 8% 3% 8%;
+    font-family: sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dashboard .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+
+    margin: 0 0 1vw 4vw;
+}
+
+.dashboard .user h2 {
+    color: #2e3841;
+    margin-bottom: 0;
+}
+
+.dashboard hr {
+    color: silver;
+    background-color: silver;
+    width: 75vw;
+}
+
+.dashboard .nonInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5vh 0;
+}
+
+.dashboard .noninfo h1 {
+    color: #2e3841;
+}
+
+.userNotFound {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 7px;
+
+    padding: 3vh;
+    user-select: none;
+    margin: 5% 25% 3% 25%;
+    font-family: sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.userNotFound h1 {
+    color: #2e3841;
+}
+
+.dashboard .products {
+    display: grid;
+    grid-row-gap: 8vh;
+    grid-column-gap: 3vh;
+    margin: 5vh 3vh 5vh 4vh;
+    grid-template-columns: 6fr 6fr 6fr 6fr;
+}
+
+.dashboard .products .product {
+    display: flex;
+    flex-direction: column;
+
+    width: 18vw;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.dashboard .products .product:hover { box-shadow: 0 2px 5px 0 rgb(62, 62, 62); }
+
+.dashboard .products .product .image img{
+    height: 30vh;
+    width: 18vw;
+    object-fit: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.dashboard .products .product .information {
+    display: flex;
+    flex-direction: column;
+}
+.dashboard .products .product .information p { padding: 0; margin: 1vh; }
+.dashboard .products .product .information .main { color: black; font-size: 3vh;}
+.dashboard .products .product .information .datetime { color: gray; font-size: 2.6vh; }
+.dashboard .products .product .information .price { color: black; font-size: 3vh; font-weight: bold;}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/account.css}">
+    <title>Login</title>
+</head>
+<body>
+<div th:replace="layout/header.html :: header"></div>
+<form class="login" th:action="@{/account/login}" th:method="post" th:object="${user}">
+    <div class="form-title"><h1>Sign in</h1></div>
+    <div class="form-groups">
+        <div class="form-group">
+            <label for="login">Login:</label>
+            <input type="text" id="login" th:field="*{login}" placeholder="Enter login"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}" placeholder="Enter password"/>
+        </div>
+    </div>
+    <div class="form-button">
+        <input type="submit" value="Login">
+    </div>
+    <div class="form-errors">
+        <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</p>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
+    </div>
+    <p>Create a new account, <a th:href="@{/account/registration}">Register</a></p>
+</form>
+</body>
+</html>

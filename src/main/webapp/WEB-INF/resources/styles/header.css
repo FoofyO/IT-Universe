@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2vh;
+
+    user-select: none;
+    font-family: sans-serif;
+    background-color: #2e3841;
+}
+
+header a {
+    color: white;
+    font-size: 3.5vh;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+header a:hover {
+    opacity: 0.7;
+}
+
+header .menus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header .menus .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2vw ;
+}
+
+header .identity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .identity .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-right: 2vw;
+}

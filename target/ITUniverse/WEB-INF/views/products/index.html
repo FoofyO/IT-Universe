@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <link rel="stylesheet" th:href="@{/styles/header.css}">
+    <link rel="stylesheet" th:href="@{/styles/productIndex.css}">
+    <title>All products</title>
+</head>
+<body>
+<div th:replace="layout/header.html :: header"></div>
+<div class="market">
+    <div class="search">
+        <select id="filter">
+            <option selected disabled>Sort by</option>
+        </select>
+        <a class="newProduct" th:href="@{/products/add}">New product</a>
+    </div>
+    <hr/>
+    <div class="nonInfo" th:if="${products.isEmpty()}">
+        <svg width="5vw" height="6vh" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+        </svg>
+        <h1>There are no products yet</h1>
+    </div>
+    <div class="products" th:unless="${products.isEmpty()}">
+        <form class="product" th:onclick="|window.location.href='/products/' + ${product.getId()}|" th:each="product : ${products}">
+            <div class="information">
+                <div>
+                    <p class="price" th:text="${#strings.replace(#numbers.formatDecimal(product.getPrice(), 0, 'WHITESPACE', 2, 'POINT'), '.00', '')} + '$'"></p>
+                </div>
+                <div>
+                    <p class="main" th:text="${product.getName()}"></p>
+                </div>
+                <div>
+                    <p class="main" th:text="${product.getCategory().getName()}"></p>
+                </div>
+                <div>
+                    <p class="datetime" th:text="${#dates.format(product.getCreationDate(), 'dd.M.yyyy hh:mm')}"></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
